@@ -1,0 +1,31 @@
+<div id="div1"></div>
+ <script>
+var xmlhttp = new XMLHttpRequest();
+var url = "bookdata.json";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table class=\"highlight centered\">";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td width=250px><img src=" + 
+        arr[i].photo +
+        "></img></td><td>" +
+        arr[i].title +
+        "</td><td>" +
+        arr[i].author +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("div1").innerHTML = out;
+}
+ </script> 

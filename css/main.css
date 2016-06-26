@@ -14,7 +14,8 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
-}
+    background-image: url("../img/bg.jpg");
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -94,15 +95,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
-
-
-
-
-
-
-
 
 
 

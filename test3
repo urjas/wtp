@@ -1,0 +1,32 @@
+
+
+<div id="div1"></div>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "bookdata.json";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<div class=\"row\"> <div class=\"col s4 m3\"> <div class=\"card small\"> <div class=\"card-image\">";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<img src=" + 
+        arr[i].photo +
+        "></img> <span class=\"card-title\">" +
+        arr[i].title +
+        "</span> </div> <div class=\"card-content\">" +
+        arr[i].author +
+        "<div class=\"card-action\"> <a href=\"#\">This is a link</a> </div> </div> </div> </div>";
+    }
+    document.getElementById("div1").innerHTML = out;
+}
+ </script> 
